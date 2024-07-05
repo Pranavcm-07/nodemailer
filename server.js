@@ -10,17 +10,20 @@ const details = {
   eventDetails: {
     start: [2024, 7, 1, 10, 0],
     duration: { hours: 1 },
-    title: "Swimming Session",
-    description: "Join us for a swimming session at SwimNGo.",
-    location: "SwimNGo Pool",
+    title: "Your Lesson with Swimingo",
+    description: "Join us for a swimming session at Swimingo.",
+    location: "Swimingo Pool",
     url: "https://www.swimngo.com",
     geo: { lat: 51.525, lon: -0.082 },
-    organizer: { name: "SwimNGo", email: "pranavcm602@gmail.com" },
+    organizer: { name: "Swimingo", email: "pranavcm602@gmail.com" },
     attendees: [{ name: "Pranav CM", email: "pranavcm212005@gmail.com" }],
   },
   emailOptions: {
     to: "pranavcm212005@gmail.com",
-    subject: "Testing Nodemailer",
+    subject: {
+      customer: "Your Lesson Has Been Successfully Scheduled",
+      instructor: "A New Lesson Has Been Booked with You",
+    },
   },
 };
 
@@ -28,7 +31,12 @@ app.get("/send-mail", (req, res) => {
   const eventDetails = details.eventDetails;
   const emailOptions = details.emailOptions;
 
-  sendCalenderMail(eventDetails, emailOptions);
+  sendCalenderMail(
+    eventDetails,
+    emailOptions,
+    (role = "instructor"),
+    (action = "booking")
+  );
   res.send("Mail sent successfully");
 });
 
