@@ -345,7 +345,7 @@ const sendCalenderMail = (eventDetails, emailOptions, role, action) => {
           },
           {
             filename: "Post Logo.png",
-            path: "C:/Users/prana/OneDrive/Documents/web development/swimngo/nodemailer-implementation/Post Logo.png",
+            path: "Post Logo.png",
             cid: "postlogo",
           },
         ],
