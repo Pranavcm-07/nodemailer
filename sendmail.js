@@ -7,13 +7,13 @@ const moment = require("moment");
 dotenv.config();
 
 const transporter = nodemailer.createTransport({
-  service: "gmail",
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,
+  host: "smtp.hostinger.com",
+  secure: true,
+  secureConnection: false,
+  port: 465,
   auth: {
-    user: "pranavcm602@gmail.com",
-    pass: process.env.APP_PASSWORD,
+    user: process.env.HOSTINGER_MAIL,
+    pass: process.env.HOSTINGER_PASSWORD,
   },
 });
 
@@ -47,7 +47,7 @@ async function sendEmail(email, subject, body, attachment = null) {
           return;
         }
         const mailOptions = {
-          from: '"Noreply.automatic email system" <swimngo.noreply@gmail.com>',
+          from: process.env.HOSTINGER_MAIL,
           to: email,
           subject: subject,
           html: body,
@@ -64,7 +64,7 @@ async function sendEmail(email, subject, body, attachment = null) {
       });
     } else {
       const mailOptions = {
-        from: '"Noreply.automatic email system" <pranav.noreply@gmail.com>',
+        from: process.env.HOSTINGER_MAIL,
         to: email,
         subject: subject,
         html: body,

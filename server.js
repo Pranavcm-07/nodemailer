@@ -15,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get("/send-mail", (req, res) => {
   sendEmail(
-    "pranavcm212005@gmail.com",
+    "pranavcm602@gmail.com",
     "Your Lesson Has Been Scheduled",
     instructorbooking,
     "2021-08-25T10:00:00Z"
