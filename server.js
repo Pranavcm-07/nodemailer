@@ -2,7 +2,8 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const app = express();
 const {
-  signup,
+  customersignup,
+  instructorsignup,
   resetpassword,
   customerbooking,
   instructorbooking,
@@ -17,8 +18,8 @@ app.get("/send-mail", (req, res) => {
   sendEmail(
     "pranavcm602@gmail.com",
     "Your Lesson Has Been Scheduled",
-    instructorbooking,
-    "2021-08-25T10:00:00Z"
+    resetpassword,
+    // "2021-08-25T10:00:00Z",
   );
   res.send("Email sent");
 });
